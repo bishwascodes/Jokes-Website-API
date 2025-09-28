@@ -1,0 +1,139 @@
+### Jokes API Test Requests - .http file with request to hit endpoints 1-6
+
+@baseUrl = http://localhost:5062
+@contentType = application/json
+
+### Create Category 
+POST {{baseUrl}}/api/categories
+Content-Type: {{contentType}}
+
+{
+  "name": "Dad Jokes"
+}
+
+### Knock Knock
+POST {{baseUrl}}/api/categories
+Content-Type: {{contentType}}
+
+{
+  "name": "Knock Knock"
+}
+
+### Puns
+POST {{baseUrl}}/api/categories
+Content-Type: {{contentType}}
+
+{
+  "name": "Puns"
+}
+
+### One Liners
+POST {{baseUrl}}/api/categories
+Content-Type: {{contentType}}
+
+{
+  "name": "One Liners"
+}
+
+
+### Get All Categories
+GET {{baseUrl}}/api/categories
+
+### Create Audience - Kids
+POST {{baseUrl}}/api/audiences
+Content-Type: {{contentType}}
+
+{
+  "name": "Kids",
+  "age": 8
+}
+
+### Teenagers
+POST {{baseUrl}}/api/audiences
+Content-Type: {{contentType}}
+
+{
+  "name": "Teenagers",
+  "age": 16
+}
+
+### Adults
+POST {{baseUrl}}/api/audiences
+Content-Type: {{contentType}}
+
+{
+  "name": "Adults",
+  "age": 30
+}
+
+### Get All Audiences
+GET {{baseUrl}}/api/audiences
+
+
+### Create Joke - Dad Joke for Kids and General
+POST {{baseUrl}}/api/jokes
+Content-Type: {{contentType}}
+
+{
+  "content": "Why don't scientists trust atoms? Because they make up everything!",
+  "categoryId": 1,
+  "audienceIds": [1]
+}
+
+### Adults
+POST {{baseUrl}}/api/jokes
+Content-Type: {{contentType}}
+
+{
+  "content": "Why do programmers prefer dark mode? Because light attracts bugs!",
+  "categoryId": 2,
+  "audienceIds": [3]
+}
+
+### Knock Knock for Kids and Teenagers
+POST {{baseUrl}}/api/jokes
+Content-Type: {{contentType}}
+
+{
+  "content": "Knock knock. Who's there? Interrupting cow. Interrupting cow w- MOOOOO!",
+  "categoryId": 3,
+  "audienceIds": [1, 2]
+}
+
+### Pun for Adults
+POST {{baseUrl}}/api/jokes
+Content-Type: {{contentType}}
+
+{
+  "content": "I wondered why the baseball kept getting bigger. Then it hit me.",
+  "categoryId": 4,
+  "audienceIds": [3, 4]
+}
+
+###  One Liner for Everyone
+POST {{baseUrl}}/api/jokes
+Content-Type: {{contentType}}
+
+{
+  "content": "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+  "categoryId": 4,
+  "audienceIds": [1, 2, 3]
+}
+
+
+### Get All Jokes
+GET {{baseUrl}}/api/jokes
+
+
+### Get Category by ID
+GET {{baseUrl}}/api/categories/1
+
+### Get Audience by ID 
+GET {{baseUrl}}/api/audiences/1
+
+### Get Joke by ID 
+GET {{baseUrl}}/api/jokes/1
+
+
+### Root Endpoint
+GET {{baseUrl}}/

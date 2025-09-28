@@ -1,0 +1,7 @@
+### Jokes API Test Requests - .http file with request to hit endpoints 1-6
+
+@baseUrl = http://localhost:5062
+@contentType = application/json
+
+### Reset Database - Deletes ALL data
+GET {{baseUrl}}/admin/reset
