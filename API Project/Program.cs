@@ -54,10 +54,20 @@ if (app.Environment.IsProduction())
     });
 }
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseDeveloperExceptionPage(); // TEMPORARY for debugging
+}
+
+
 app.UseHttpsRedirection();
 
 
-app.MapGet("/", () => "Hello World");
+app.MapGet("/debug-info", () => connectionString);
 
 app.UseHttpsRedirection();
 
