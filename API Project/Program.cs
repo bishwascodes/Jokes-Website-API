@@ -13,6 +13,18 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAuthorization();
 
+//making cors policy to allow anyone to access the api
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 //persist data using EFCore to a sqlite or postgres database of your choosing (I just have to be able to access the database when grading)
 // Read connection string
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
