@@ -39,12 +39,19 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-}
-
-if (app.Environment.IsDevelopment())
-{
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+// OPTIONAL: Enable Swagger in production (So that our frontend developer can see it in real)
+if (app.Environment.IsProduction())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.RoutePrefix = string.Empty; // makes Swagger UI the default page if you want
+    });
 }
 
 app.UseHttpsRedirection();
