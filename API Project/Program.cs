@@ -69,7 +69,6 @@ app.UseHttpsRedirection();
 
 app.MapGet("/debug-info", () =>
 {
-    var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
 
     return $"Connection string: {connectionString}";
 
