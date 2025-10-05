@@ -27,7 +27,7 @@ builder.Services.AddCors(options =>
 
 //persist data using EFCore to a sqlite or postgres database of your choosing (I just have to be able to access the database when grading)
 // Read connection string
-var connectionString = builder.Configuration.GetConnectionString("POSTGRESQLCONNSTR_DefaultConnection");
+var connectionString = builder.Configuration["POSTGRESQLCONNSTR_DefaultConnection"];
 
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseNpgsql(connectionString)
