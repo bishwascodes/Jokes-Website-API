@@ -58,21 +58,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
-else
-{
-    app.UseDeveloperExceptionPage(); // TEMPORARY for debugging
-}
 
 
 app.UseHttpsRedirection();
-
-
-app.MapGet("/debug-info", () =>
-{
-
-    return $"Connection string: {connectionString}";
-
-});
 
 app.UseHttpsRedirection();
 
